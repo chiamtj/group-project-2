@@ -32,6 +32,7 @@ async function testConnection() {
 //Import model(s)
 const User = require("./user.model")(sequelize);
 const Review = require("./review.model")(sequelize);
+const Movie = require("./movie.model")(sequelize);
 
 //Create associations
 Review.belongsTo(Movie, {
