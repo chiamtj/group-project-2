@@ -33,6 +33,7 @@ async function testConnection() {
 const User = require("./user.model")(sequelize);
 const Review = require("./review.model")(sequelize);
 const Movie = require("./movie.model")(sequelize);
+const Rating = require("./rating.model")(sequelize);
 
 //Create associations
 Review.belongsTo(Movie, {
@@ -43,6 +44,14 @@ Review.belongsTo(User, {
   foreignKey: "user_id",
 });
 
+Rating.belongsTo(Movie, {
+  foreignKey: "movie_id",
+});
+
+Rating.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
 // Exports (remember enhanced object literal)
 module.exports = {
   sequelize,
@@ -50,4 +59,5 @@ module.exports = {
   User,
   Movie,
   Review,
+  Rating,
 };

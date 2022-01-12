@@ -1,4 +1,4 @@
-const {Review, Movie} = require('../models');
+const {Rating, Movie} = require('../models');
 
 module.exports = {
     newrating: async(movieId, setRating)=> {
@@ -10,7 +10,13 @@ module.exports = {
         console.log (movieId);
         console.log (setRating);
         const movie = await Movie.findByPk(movieId);
-        const review = await Review.create({
+        if (!movie) {
+            result.message = `Movie ID ${movieId} is not found.`;
+            result.status = 404;
+            return result;
+        }
+
+        const review = await Rating.create({
             user_id: 1,
             movie_id: movieId,
             rating: setRating,
@@ -19,17 +25,10 @@ module.exports = {
 
         if (review) {
             result.data = review;
-            result.message = `Movie ${movie.title} rated ${setRating} stars`;
+            result.message = `${movie.title} has been rated ${setRating} stars`;
             result.status = 200;
             return result;
-        }
-
-        if (!review) {
-            result.message = `Movie ID ${movieId} is not found.`;
-            result.status = 404;
-            return result;
-        }
-        
+        }        
     }
     
 };
