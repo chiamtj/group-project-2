@@ -30,8 +30,8 @@ async function testConnection() {
 }
 
 //Import model(s)
-//const User = require("./user.model")(sequelize);
-//const Review = require("./review.model")(sequelize);
+const User = require("./user.model")(sequelize);
+const Review = require("./review.model")(sequelize);
 const Movie = require("./movie.model")(sequelize);
 
 //Create associations
@@ -47,7 +47,5 @@ const Movie = require("./movie.model")(sequelize);
 module.exports = {
   sequelize,
   testConnection,
-  //User,
   Movie,
- // Review,
 };

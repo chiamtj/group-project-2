@@ -52,7 +52,7 @@ module.exports = function (sequelize) {
     },
     {
       sequelize,
-      modelName: "Movie",
+      modelName: "movie",
       tableName: "movies",
     }
   );
