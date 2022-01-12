@@ -30,23 +30,24 @@ async function testConnection() {
 }
 
 //Import model(s)
-const User = require("./user.model")(sequelize);
-const Review = require("./review.model")(sequelize);
+//const User = require("./user.model")(sequelize);
+//const Review = require("./review.model")(sequelize);
+const Movie = require("./movie.model")(sequelize);
 
 //Create associations
-Review.belongsTo(Movie, {
-  foreignKey: "movie_id",
-});
+// Review.belongsTo(Movie, {
+//   foreignKey: "movie_id",
+// });
 
-Review.belongsTo(User, {
-  foreignKey: "user_id",
-});
+// Review.belongsTo(User, {
+//   foreignKey: "user_id",
+// });
 
 // Exports (remember enhanced object literal)
 module.exports = {
   sequelize,
   testConnection,
-  User,
+  //User,
   Movie,
-  Review,
+ // Review,
 };
