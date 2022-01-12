@@ -8,8 +8,10 @@ app.get("/", function (req, res) {
 
 const ratingRoute = require('./rating_route');
 const movieRoute = require('./movie_route');
+const searchRoute = require('./titleSearch_route');
 
 app.use(ratingRoute);
 app.use(movieRoute);
+app.use(searchRoute);
 
 module.exports = app;
