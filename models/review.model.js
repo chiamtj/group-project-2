@@ -18,10 +18,6 @@ module.exports = function (sequelize) {
                 type: DataTypes.INTEGER,
                 allowNull: true,
             },
-            rating: {
-                type: DataTypes.INTEGER,
-                allowNull: true,
-            },
             review: {
                 type: DataTypes.STRING,
                 allowNull: true,

@@ -1,11 +1,3 @@
-/*
-  Explain to student:
-
-  In this file, we demonstrate the use of exporting a literal object. There is no strict rule to whether should
-  service be object literal or class, it depends on actual use case and software design. In this exercise,
-  we just want to demonstrate the another approach.
-*/
-
 const { Movie } = require("../models");
 
 module.exports = {
@@ -29,4 +21,26 @@ module.exports = {
 
     return result;
   },
+
+  details: async(movieId)=> {
+    let result = {
+        message: null,
+        status: null,
+        data: null,
+    };
+    const movie = await Movie.findByPk(movieId);
+
+    if (movie) {
+        result.data = movie;
+        result.message = 'Movie Found';
+        result.status = 200;
+        return result;
+    }
+
+    if (!movie) {
+        result.message = `Movie ID ${movieId} is not found.`;
+        result.status = 404;
+        return result;
+      }
+  }
 };
