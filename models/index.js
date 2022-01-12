@@ -33,13 +33,22 @@ async function testConnection() {
 const User = require("./user.model")(sequelize);
 const Review = require("./review.model")(sequelize);
 const Movie = require("./movie.model")(sequelize);
+const Rating = require("./rating.model")(sequelize);
 
 //Create associations
-Review.belongsTo(Movie, {
+// Review.belongsTo(Movie, {
+//   foreignKey: "movie_id",
+// });
+
+// Review.belongsTo(User, {
+//   foreignKey: "user_id",
+// });
+
+Rating.belongsTo(Movie, {
   foreignKey: "movie_id",
 });
 
-Review.belongsTo(User, {
+Rating.belongsTo(User, {
   foreignKey: "user_id",
 });
 
@@ -47,7 +56,7 @@ Review.belongsTo(User, {
 module.exports = {
   sequelize,
   testConnection,
-  User,
   Movie,
   Review,
+  Rating,
 };
