@@ -16,6 +16,7 @@ class SearchController {
 
         //Return results
         return res.json({data: result.data, message: result.message});
+        
     }
 }
 
