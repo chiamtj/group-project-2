@@ -9,6 +9,12 @@ module.exports = {
     };
     const movie = await Movie.findByPk(movieId);
     
+    if (!movie) {
+      result.message = `Movie ID ${movieId} not found.`;
+      result.status = 404;
+      return result;
+    }
+
     const review = await Review.create(
         {
             user_id: 1,
@@ -17,13 +23,11 @@ module.exports = {
         }
     ); 
 
-    // to loop through
-    // if (review.movieId !== movie.movieId) {
-    //     result.message = `Movie not found.`;
-    //     result.status = 404;
-    //     return result;
-    //   }
-
+    if (createReview.length <= 0 ) {
+      result.message = `Review cannot be empty.`;
+      result.status = 400;
+      return result;
+    }
 
     await review.save();
     result.data = review;
@@ -31,5 +35,6 @@ module.exports = {
     result.status = 200;
 
     return result;
+
   },
 };
