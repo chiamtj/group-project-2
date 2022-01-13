@@ -1,15 +1,15 @@
 // For Testing Only
 
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-const MovieController = require('../controller/movie.controller');
-const movieController = new MovieController();
+// const MovieController = require('../controller/movie.controller');
+// const movieController = new MovieController();
 
-router.get('/movie', (req,res)=> {
-    return res.send('Nothing here');
-});
+// router.get('/movie', (req,res)=> {
+//     return res.send('Nothing here');
+// });
 
-router.get('/movie/:movieId', movieController.details);
+// router.get('/movie/:movieId', movieController.details);
 
-module.exports = router;
+// module.exports = router;
