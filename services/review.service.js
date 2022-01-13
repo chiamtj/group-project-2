@@ -31,7 +31,6 @@ module.exports = {
         }
     ); 
 
-    await review.save();
     result.data = review;
     result.message = `Movie review added!`;
     result.status = 200;
