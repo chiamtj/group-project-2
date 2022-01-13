@@ -5,7 +5,7 @@ module.exports = function (sequelize) {
 
   Movie.init(
     {
-      movie_id: {
+      movieId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -31,12 +31,12 @@ module.exports = function (sequelize) {
         allowNull: true,
         field: "synopsis",
       },
-      release_date: {
+      releaseDate: {
         type: DataTypes.STRING,
         allowNull: true,
         field: "release_date",
       },
-      cast_members: {
+      castMembers: {
         type: DataTypes.STRING,
         allowNull: true,
         field: "cast_members",

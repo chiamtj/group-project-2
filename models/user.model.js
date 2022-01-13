@@ -5,10 +5,11 @@ module.exports = function (sequelize) {
 
     User.init(
         {
-            user_id: {
+            userId: {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
+                field: "user_id",
             },
             name: {
                 type: DataTypes.STRING,
