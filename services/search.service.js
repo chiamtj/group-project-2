@@ -1,4 +1,7 @@
 const {Movie} = require('../models');
+const Sequelize = require("sequelize");
+const res = require('express/lib/response');
+const Op = Sequelize.Op;
 
 module.exports = {
     contents: async(title)=> {
@@ -8,7 +11,12 @@ module.exports = {
             data: null,
         };
 
-        const movie= await Movie.findOne({where: {title: ''}});
+        const movie= await Movie.findAll({
+            where: {
+                title:{[Op.iLike]:'%' + title + '%'}
+            }
+        }
+    );
         
         if (movie ===null || !movie) {
             result.message = 'Invalid Title !';
@@ -18,6 +26,7 @@ module.exports = {
 
         if (movie) {
             result.message = 'Movie Found';
+            result.data=movie    
             result.status = 200;
             return result;
         }
