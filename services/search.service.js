@@ -1,4 +1,6 @@
 const {Movie} = require('../models');
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = {
     contents: async(title)=> {
@@ -8,7 +10,12 @@ module.exports = {
             data: null,
         };
 
-        const movie= await Movie.findOne({where: {title: ''}});
+        const movie= await Movie.replace(/\s+/g, '').toLowerCase().findAll({
+            where: {
+                title:{[Op.like]:`%${title}%`}
+            }
+        }
+    );
         
         if (movie ===null || !movie) {
             result.message = 'Invalid Title !';
