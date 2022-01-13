@@ -25,6 +25,7 @@ module.exports = {
 
     if (createReview.length <= 0 ) {
       result.message = `Review cannot be empty.`;
+      result.data = review;
       result.status = 400;
       return result;
     }
