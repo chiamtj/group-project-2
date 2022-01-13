@@ -8,6 +8,6 @@ router.get('/movie', (req,res)=> {
     return res.send('Nothing here');
 });
 
-router.get('/movie/search/:title', searchController.contents);
+router.get('/search', searchController.contents);
 
 module.exports = router;

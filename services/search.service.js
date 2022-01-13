@@ -1,5 +1,6 @@
 const {Movie} = require('../models');
 const Sequelize = require("sequelize");
+const res = require('express/lib/response');
 const Op = Sequelize.Op;
 
 module.exports = {
@@ -10,9 +11,9 @@ module.exports = {
             data: null,
         };
 
-        const movie= await Movie.replace(/\s+/g, '').toLowerCase().findAll({
+        const movie= await Movie.findAll({
             where: {
-                title:{[Op.like]:`%${title}%`}
+                title:{[Op.iLike]:'%' + title + '%'}
             }
         }
     );
@@ -25,6 +26,7 @@ module.exports = {
 
         if (movie) {
             result.message = 'Movie Found';
+            result.data=movie    
             result.status = 200;
             return result;
         }
