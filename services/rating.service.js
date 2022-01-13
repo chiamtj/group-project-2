@@ -17,8 +17,8 @@ module.exports = {
         }
 
         const review = await Rating.create({
-            user_id: 1,
-            movie_id: movieId,
+            userId: 1,
+            movieId: movieId,
             rating: setRating,
         });
         // console.log(review.rating);

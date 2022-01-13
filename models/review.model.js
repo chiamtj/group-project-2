@@ -5,18 +5,21 @@ module.exports = function (sequelize) {
 
     Review.init(
         {
-            review_id: {
+            reviewId: {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
+                field: "review_id",
             },
-            user_id: {
+            userId: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
+                field: "user_id",
             },
-            movie_id: {
+            movieId: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
+                field: "movie_id",
             },
             review: {
                 type: DataTypes.STRING,

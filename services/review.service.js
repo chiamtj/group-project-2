@@ -25,8 +25,8 @@ module.exports = {
 
     const review = await Review.create(
         {
-            user_id: 1,
-            movie_id: movieId,
+            userId: 1,
+            movieId: movieId,
             review: createReview,
         }
     ); 
