@@ -3,12 +3,12 @@ const reviewService = require('../services/review.service');
 class ReviewController {
     async newReview(req, res, next) {
         // Consume the service layer
-        const result = await reviewService.newReview(req.params.movieId, req.params.createReview)
+        const result = await reviewService.newReview(req.params.movieId, req.body.createReview)
         res.status(result.status);
         console.log (result);
 
         //Return results
-        return res.json({data: result.data, message: result.message});
+        return res.json({message: result.message, review: result.data.review});
     }
 }
 

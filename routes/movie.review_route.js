@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+// router.use(express.json()); 
 
 // Import
 const ReviewController = require("../controller/review.controller");
@@ -7,7 +8,7 @@ const ReviewController = require("../controller/review.controller");
 const reviewController = new ReviewController();
 
 // Invoke newReview() in ReviewController based on the route
-router.post('/movie/:movieId/review/:createReview', reviewController.newReview);
+router.post('/movie/:movieId/review/newReview', reviewController.newReview);
 
 module.exports = router;
 
