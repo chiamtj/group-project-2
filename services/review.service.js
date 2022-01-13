@@ -11,7 +11,15 @@ module.exports = {
     
     if (!movie) {
       result.message = `Movie ID ${movieId} not found.`;
+      result.data = "Not applicable";
       result.status = 404;
+      return result;
+    }
+
+    if (createReview.length <= 0 ) {
+      result.message = `Review cannot be empty.`;
+      result.data = "Empty review";
+      result.status = 400;
       return result;
     }
 
@@ -22,13 +30,6 @@ module.exports = {
             review: createReview,
         }
     ); 
-
-    if (createReview.length <= 0 ) {
-      result.message = `Review cannot be empty.`;
-      result.data = review;
-      result.status = 400;
-      return result;
-    }
 
     await review.save();
     result.data = review;
