@@ -11,14 +11,14 @@ module.exports = {
             data: null,
         };
 
-        const movie= await Movie.findAll({
+        const movie= await Movie.findOne({
             where: {
                 title:{[Op.iLike]:'%' + title + '%'}
             }
         }
     );
         
-        if (movie ===null || !movie) {
+        if (!movie ) {
             result.message = 'Invalid Title !';
             result.status = 404;
             return result; 
