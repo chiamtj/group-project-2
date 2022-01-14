@@ -36,13 +36,13 @@ const Movie = require("./movie.model")(sequelize);
 const Rating = require("./rating.model")(sequelize);
 
 //Create associations
-// Review.belongsTo(Movie, {
-//   foreignKey: "movie_id",
-// });
+Review.belongsTo(Movie, {
+  foreignKey: "movie_id",
+});
 
-// Review.belongsTo(User, {
-//   foreignKey: "user_id",
-// });
+Review.belongsTo(User, {
+  foreignKey: "user_id",
+});
 
 Rating.belongsTo(Movie, {
   foreignKey: "movie_id",
